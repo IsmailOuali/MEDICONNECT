@@ -41,11 +41,11 @@
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Selectionner un role')" />
 
-            <select class="block mt-1 w-full"
+            <select name="role" class="block mt-1 w-full"
                             type="role"
                             name="role" required autocomplete="role">
-                            <option value="Medecin">Medecin</option>
-                            <option value="patient">patient</option>
+                            <option value="1" name="1">Medecin</option>
+                            <option value="2" name="2">patient</option>
             </select>
         </div>
 
