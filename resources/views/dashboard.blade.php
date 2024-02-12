@@ -45,8 +45,9 @@
                     <!-- menu item -->
                     <div>
                         <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
-                        <a href="javascript:;" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Gestions des medicaments</a>
-                        </span>
+                            <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                                <a href="{{ route('medicaments.index') }}" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Gestions des medicaments</a>
+                            </span>
                     </div>
         
                     <!-- menu item -->

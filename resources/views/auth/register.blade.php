@@ -42,10 +42,20 @@
             <x-input-label for="password_confirmation" :value="__('Selectionner un role')" />
 
             <select name="role" class="block mt-1 w-full"
-                            type="role"
+                            id="role" onchange="toggleDoctorOptions(this.value)"
                             name="role" required autocomplete="role">
-                            <option value="1" name="1">Medecin</option>
                             <option value="2" name="2">patient</option>
+                            <option value="1" name="1">Medecin</option>
+            </select>
+        </div>
+        <div id="doctorOptions" class="mt-4" style="display: none;">
+            <label for="specialty" class="block font-medium text-sm text-gray-700">Specialty</label>
+            <select id="specialty" name="specialty" class="form-select mt-1 block w-full">
+
+                    <option value=""> namespecialite</option>
+        
+
+                <!-- Add more specialties as needed -->
             </select>
         </div>
 
@@ -59,4 +69,15 @@
             </x-primary-button>
         </div>
     </form>
+    <script>
+        function toggleDoctorOptions(role) {
+            var doctorOptions = document.getElementById('doctorOptions');
+            if (role === '1') {
+                doctorOptions.style.display = 'block';
+            } else {
+                doctorOptions.style.display = 'none';
+            }
+        }
+    </script>
+    
 </x-guest-layout>
