@@ -55,15 +55,15 @@ class User extends Authenticatable
     ];
     public function isAdmin()
     {
-        return $this->role === '0';
+        return $this->role === 0;
     }
     public function isDoctor()
     {
-        return $this->role === '1';
+        return $this->role === 1;
     }
     public function isPatient()
     {
-        return $this->role === '2';
+        return $this->role === 2;
     }
 
 }
