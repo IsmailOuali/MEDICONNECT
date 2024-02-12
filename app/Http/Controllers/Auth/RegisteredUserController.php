@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Models\Medecin;
+use App\Models\Patient;
+use App\Models\Admin;
+
 
 class RegisteredUserController extends Controller
 {
@@ -42,7 +46,18 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role,
         ]);
+        switch ($request->role) {
+            case '1':
+                $medecin = new Medecin();
+                $user->medecin()->save($medecin);
+                break;
+    
+            case '2':
+                $patient = new Patient();
+                $user->patient()->save($patient);
+                break;
 
+            }
         event(new Registered($user));
 
         Auth::login($user);
