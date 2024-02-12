@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Medicament;
 
 class MedicamentController extends Controller
 {
@@ -15,7 +16,8 @@ class MedicamentController extends Controller
         $medicaments = Medicament::all();
 
         // Pass the medicaments data to the view
-        return view('medicaments.index', compact('medicaments'));
+        return view('docDashboard', compact('medicaments'));
+
     }
 
     /**
@@ -31,8 +33,17 @@ class MedicamentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'medicament' => 'required|string|max:255',
+        ]);
+    
+        $medicament = new Medicament;
+        $medicament->name = $request->medicament;
+        $medicament->save();
+    
+        return back()->with('success', 'Medicament added successfully.');
     }
+    
 
     /**
      * Display the specified resource.

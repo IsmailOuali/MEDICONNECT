@@ -2,7 +2,7 @@
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\RegisterBasedOnRoleController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\MedicamentController;
 use App\Http\Middleware\RedirectBasedOnRole;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +34,8 @@ Route::post('/login', function () {
     return redirect()->route('dashboard');
 });
 Route::get('/medicaments', [MedicamentController::class, 'index'])->name('medicaments.index');
+Route::post('/medicaments', [MedicamentController::class, 'store'])->name('medicaments.store');
+
 
 
 require __DIR__.'/auth.php';
