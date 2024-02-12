@@ -19,6 +19,13 @@ class MedicamentController extends Controller
         return view('docDashboard', compact('medicaments'));
 
     }
+    public function docDashboard()
+    {
+        $medicaments = Medicament::all();
+
+        return view('docDashboard', compact('medicaments'));
+    }
+    
 
     /**
      * Show the form for creating a new resource.

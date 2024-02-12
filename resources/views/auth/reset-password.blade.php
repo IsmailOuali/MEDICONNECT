@@ -1,8 +1,9 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
-        @csrf
-
-        <!-- Password Reset Token -->
+    <div class="h-full w-full bg-[url('images/cover-bg.jpg')] object-cover ">
+        <form method="POST" action="{{ route('password.store') }}">
+            @csrf
+            
+            <!-- Password Reset Token -->
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
         <!-- Email Address -->
@@ -36,4 +37,5 @@
             </x-primary-button>
         </div>
     </form>
+</div>
 </x-guest-layout>

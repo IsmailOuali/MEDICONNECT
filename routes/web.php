@@ -35,6 +35,8 @@ Route::post('/login', function () {
 });
 Route::get('/medicaments', [MedicamentController::class, 'index'])->name('medicaments.index');
 Route::post('/medicaments', [MedicamentController::class, 'store'])->name('medicaments.store');
+Route::get('/doc-dashboard', [MedicamentController::class, 'docDashboard'])->name('docDashboard');
+
 
 
 

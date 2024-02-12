@@ -175,11 +175,10 @@
             <nav
               class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none">
               <ul class="md:flex items-center">
-                <li><a class="py-2 inline-block md:text-white md:hidden lg:block font-semibold" href="#">About Us</a></li>
+                <li><a class="py-2 inline-block md:text-white md:hidden lg:block font-semibold" href="/login">Se Connecter</a></li>
+                <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold" href="/register">Creer un Compte</a></li>
                 <li class="md:ml-4 md:hidden lg:block"><a class="py-2 inline-block md:text-white md:px-2 font-semibold"
                     href="#">Consultation</a></li>
-                <li class="md:ml-4"><a class="py-2 inline-block md:text-white md:px-2 font-semibold" href="#">Contact
-                    Us</a></li>
                 <li class="md:ml-6 mt-3 md:mt-0">
                   <a class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded"
                     href="book-appointment.html">Reserver un rendez-vous</a>
@@ -196,7 +195,7 @@
         <section class="cover bg-blue-teal-gradient relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex
         items-center min-h-screen">
           <div class="h-full absolute top-0 left-0 z-0">
-            <img src="images/cover-bg.jpg" alt="" class="w-full h-full object-cover opacity-20">
+            <img src="images/cover-bg.jpg" alt="" class="w-full h-full object-cover ">
           </div>
   
           <div class="lg:w-3/4 xl:w-2/4 relative z-10 h-100 lg:mt-16">

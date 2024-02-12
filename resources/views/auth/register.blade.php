@@ -1,8 +1,9 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+    <div class="h-full w-full bg-[url('images/cover-bg.jpg')] object-cover ">
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-        <!-- Name -->
+            <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
@@ -31,20 +32,20 @@
         <!-- Confirm Password -->
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
+            
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
+            type="password"
+            name="password_confirmation" required autocomplete="new-password" />
+            
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Selectionner un role')" />
-
+            
             <select name="role" class="block mt-1 w-full"
-                            id="role" onchange="toggleDoctorOptions(this.value)"
-                            name="role" required autocomplete="role">
-                            <option value="2" name="2">patient</option>
+            id="role" onchange="toggleDoctorOptions(this.value)"
+            name="role" required autocomplete="role">
+            <option value="2" name="2">patient</option>
                             <option value="1" name="1">Medecin</option>
             </select>
         </div>
@@ -52,9 +53,9 @@
             <label for="specialty" class="block font-medium text-sm text-gray-700">Specialty</label>
             <select id="specialty" name="specialty" class="form-select mt-1 block w-full">
 
-                    <option value=""> namespecialite</option>
-        
-
+                <option value=""> namespecialite</option>
+                
+                
                 <!-- Add more specialties as needed -->
             </select>
         </div>
@@ -69,6 +70,7 @@
             </x-primary-button>
         </div>
     </form>
+</div>
     <script>
         function toggleDoctorOptions(role) {
             var doctorOptions = document.getElementById('doctorOptions');
