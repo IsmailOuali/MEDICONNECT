@@ -52,7 +52,7 @@
                   <!-- menu item -->
                   <div>
                       <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
-                      <a href="javascript:;" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Gestion des specialites</a>
+                      <a href="#Addspeciality" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Gestion des specialites</a>
                       </span>
                   </div>
       
@@ -165,10 +165,10 @@
                                               <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full ">
                                                   <h1 class="text-xl font-semibold mb-4">Veuillez entrer le nom du Specialie</h1>
                                                   <p class="text-gray-600 mb-6">Soyez precis en entrant cet information</p>
-                                                  {{-- <form method="POST" action="{{ route('speciality.store') }}"> --}}
+                                                  <form method="POST" action="{{ route('Specialities.store') }}">
                                                       @csrf
                                                       <div class="mb-4">
-                                                        <input type="text" name="medicament" placeholder="Speciality" class=" w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
+                                                        <input type="text" name="speciality" placeholder="Speciality" class=" w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
                                                       </div>
                                                       <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
                                                   </form>
@@ -187,14 +187,15 @@
                                                                 <th></th>
                                                             </tr>
                                                             @csrf
-                                                            {{-- @foreach ($specialities as $speciality)
+
+                                                            @foreach ($specialities as $speciality)
                          
                                                             <tr class="border-b hover:bg-orange-100">
                                                                 <td class="p-3 px-5"><p>{{ $speciality->name }}</p></td>
                                                                 <td class="p-3 px-5 flex justify-end"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</button><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button></td>
                                                             </tr>
       
-                                                            @endforeach --}}
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>

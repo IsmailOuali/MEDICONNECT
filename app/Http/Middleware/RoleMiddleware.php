@@ -31,8 +31,13 @@ class RoleMiddleware
         // Redirect the user based on their role
         $medicaments = Medicament::All();
 
-        // Pass the 'medicaments' variable to the views
-        $request->attributes->add(['medicaments' => $medicaments]);
+        $specialities = SpecialiteMedical::all();
+
+        // Pass the 'medicaments' and 'specialities' variables to the views
+        $request->attributes->add([
+            'medicaments' => $medicaments,
+            'specialities' => $specialities,
+        ]);
     
         // Redirect the user based on their role
         switch (auth()->user()->role) {
@@ -40,10 +45,10 @@ class RoleMiddleware
                 return redirect('/welcome');
                 break;
             case 2: // Medecin
-                return redirect('/doc-dashboard', ['medicaments ' => $medicaments]);
+                return redirect('/doc-dashboard', ['medicaments ' => $medicaments, 'specialities' => $specialities]);
                 break;
             case 3: // Admin
-                return redirect('/dashboard', ['medicaments ' => $medicaments]);
+                return redirect('/dashboard', ['medicaments ' => $medicaments, 'specialities' => $specialities]);
                 break;
             default:
                     // Default redirection if the role is not matched

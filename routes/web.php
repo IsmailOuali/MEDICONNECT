@@ -3,6 +3,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\RegisterBasedOnRoleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MedicamentController;
+use App\Http\Controllers\SpecialityController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,12 @@ Route::get('/medicaments', [MedicamentController::class, 'index'])->name('medica
 Route::post('/medicaments', [MedicamentController::class, 'store'])->name('medicaments.store');
 Route::get('/doc-dashboard', [MedicamentController::class, 'docDashboard'])->name('docDashboard');
 Route::get('/dashboard', [MedicamentController::class, 'dashboard'])->name('dashboard');
+
+
+Route::get('/Specialities', [SpecialityController::class, 'index'])->name('Specialities.index');
+Route::post('/Specialties', [SpecialityController::class, 'store'])->name('Specialities.store');
+Route::get('/doc-dashboard', [SpecialityController::class, 'docDashboard'])->name('docDashboard');
+Route::get('/dashboard', [SpecialityController::class, 'dashboard'])->name('dashboard');
 
 
 
