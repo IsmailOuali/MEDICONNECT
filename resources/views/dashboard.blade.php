@@ -115,51 +115,98 @@
                           <div  class="flex flex-wrap ml-9 my-5">
                               <section class="text-gray-700 body-font">
                                   <div class="bg-gray-100">
-                                      <div class="min-h-screen flex items-center justify-center">
+                                      <div class="w-full min-h-screen flex items-center justify-center">
                                           <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full">
                                               <h1 class="text-xl font-semibold mb-4">Veuillez entrer le nom du medicament</h1>
                                               <p class="text-gray-600 mb-6">Soyez precis en entrant cet information</p>
                                               <form method="POST" action="{{ route('medicaments.store') }}">
                                                   @csrf
                                                   <div class="mb-4">
-                                                      <input type="text" name="medicament" placeholder="Medicament" class=" w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
+                                                    <input type="text" name="medicament" placeholder="Medicament" class=" w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
                                                   </div>
-                                                  <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
+                                                  <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
                                               </form>
                                           </div>
+                                          <div class="text-gray-900 bg-gray-200">
+                                            <div class="p-4 flex">
+                                                <h1 class="text-3xl">
+                                                    Medicaments
+                                                </h1>
+                                            </div>
+                                            <div class="px-3 flex justify-center">
+                                                <table class="w-full text-md bg-blue-300 shadow-md rounded mb-4">
+                                                    <tbody>
+                                                        <tr class="border-b">
+                                                            <th class="text-left p-3 px-5">Name</th>
+                                                            <th></th>
+                                                        </tr>
+                                                        @csrf
+                                                        @foreach ($medicaments as $medicament)
+                     
+                                                        <tr class="border-b hover:bg-orange-100">
+                                                            <td class="p-3 px-5"><p>{{ $medicament->name }}</p></td>
+                                                            <td class="p-3 px-5 flex justify-end"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</button><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button></td>
+                                                        </tr>
+  
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                       </div>
-                                      <div class="text-gray-900 bg-gray-200">
-                                          <div class="p-4 flex">
-                                              <h1 class="text-3xl">
-                                                  Medicaments
-                                              </h1>
-                                          </div>
-                                          <div class="px-3 flex justify-center">
-                                              <table class="w-full text-md bg-blue-300 shadow-md rounded mb-4">
-                                                  <tbody>
-                                                      <tr class="border-b">
-                                                          <th class="text-left p-3 px-5">Name</th>
-                                                          <th></th>
-                                                      </tr>
-                                                      @csrf
-                                                      @foreach ($medicaments as $medicament)
-                   
-                                                      <tr class="border-b hover:bg-orange-100">
-                                                          <td class="p-3 px-5"><p>{{ $medicament->name }}</p></td>
-                                                          <td class="p-3 px-5 flex justify-end"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</button><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button></td>
-                                                      </tr>
-
-                                                      @endforeach
-                                                  </tbody>
-                                              </table>
-                                          </div>
-                                      </div>
+                                      
                                   </div>
-                              </section>
+                            </section>
+                            <section id="Addspeciality"  class="text-gray-700 body-font">
+                              <div  class="flex flex-wrap ml-9 my-5">
+                                  <section class="text-gray-700 body-font">
+                                      <div class="bg-gray-100">
+                                          <div class="w-full min-h-screen flex items-center justify-center">
+                                              <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full ">
+                                                  <h1 class="text-xl font-semibold mb-4">Veuillez entrer le nom du Specialie</h1>
+                                                  <p class="text-gray-600 mb-6">Soyez precis en entrant cet information</p>
+                                                  {{-- <form method="POST" action="{{ route('speciality.store') }}"> --}}
+                                                      @csrf
+                                                      <div class="mb-4">
+                                                        <input type="text" name="medicament" placeholder="Speciality" class=" w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
+                                                      </div>
+                                                      <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
+                                                  </form>
+                                              </div>
+                                              <div class="text-gray-900 bg-gray-200">
+                                                <div class="p-4 flex">
+                                                    <h1 class="text-3xl">
+                                                        Specialities
+                                                    </h1>
+                                                </div>
+                                                <div class="px-3 flex justify-center">
+                                                    <table class="w-full text-md bg-blue-300 shadow-md rounded mb-4">
+                                                        <tbody>
+                                                            <tr class="border-b">
+                                                                <th class="text-left p-3 px-5">Name</th>
+                                                                <th></th>
+                                                            </tr>
+                                                            @csrf
+                                                            {{-- @foreach ($specialities as $speciality)
+                         
+                                                            <tr class="border-b hover:bg-orange-100">
+                                                                <td class="p-3 px-5"><p>{{ $speciality->name }}</p></td>
+                                                                <td class="p-3 px-5 flex justify-end"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</button><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button></td>
+                                                            </tr>
+      
+                                                            @endforeach --}}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                          </div>
+                                          
+                                      </div>
+                                </section>
                           </div>
                       </div>
                   </div>
-                        </section>
+        </section>
 
 
       </div>

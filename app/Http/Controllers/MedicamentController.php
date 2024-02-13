@@ -16,7 +16,7 @@ class MedicamentController extends Controller
         $medicaments = Medicament::all();
 
         // Pass the medicaments data to the view
-        return view('docDashboard', compact('medicaments'));
+        return view('welcome');
 
     }
     public function docDashboard()
@@ -24,6 +24,12 @@ class MedicamentController extends Controller
         $medicaments = Medicament::all();
 
         return view('docDashboard', compact('medicaments'));
+    }
+    public function dashboard()
+    {
+        $medicaments = Medicament::all();
+
+        return view('dashboard', compact('medicaments'));
     }
     
 

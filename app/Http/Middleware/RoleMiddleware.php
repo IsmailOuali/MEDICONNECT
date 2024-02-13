@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models;
+use App\Models\Medicament;
 use Illuminate\Database\Eloquent\Model;
 use Closure;
 use Illuminate\Http\Request;
@@ -29,7 +29,7 @@ class RoleMiddleware
         }
     
         // Redirect the user based on their role
-        $medicaments = Medicament::pluck('name')->toArray();
+        $medicaments = Medicament::All();
 
         // Pass the 'medicaments' variable to the views
         $request->attributes->add(['medicaments' => $medicaments]);
@@ -40,13 +40,13 @@ class RoleMiddleware
                 return redirect('/welcome');
                 break;
             case 2: // Medecin
-                return redirect('/doc-dashboard');
+                return redirect('/doc-dashboard', ['medicaments ' => $medicaments]);
                 break;
             case 3: // Admin
-                return redirect('/dashboard');
+                return redirect('/dashboard', ['medicaments ' => $medicaments]);
                 break;
             default:
-                // Default redirection if the role is not matched
+                    // Default redirection if the role is not matched
                 return redirect('/');
                 break;
         }

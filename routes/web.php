@@ -40,28 +40,7 @@ Route::post('/login', function () {
 Route::get('/medicaments', [MedicamentController::class, 'index'])->name('medicaments.index');
 Route::post('/medicaments', [MedicamentController::class, 'store'])->name('medicaments.store');
 Route::get('/doc-dashboard', [MedicamentController::class, 'docDashboard'])->name('docDashboard');
-
-Route::middleware(['role:1'])->group(function () {
-    // Patient routes
-    Route::get('/welcome', function () {
-        return view('welcome');
-    });
-});
-
-Route::middleware(['role:2'])->group(function () {
-    // Medecin routes
-    Route::get('/doc-dashboard', function () {
-        return view('docDashboard');
-    });
-});
-
-Route::middleware(['role:3'])->group(function () {
-    // Admin routes
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
-});
-
+Route::get('/dashboard', [MedicamentController::class, 'dashboard'])->name('dashboard');
 
 
 

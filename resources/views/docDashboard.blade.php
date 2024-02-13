@@ -124,7 +124,7 @@
                                                     <div class="mb-4">
                                                         <input type="text" name="medicament" placeholder="Medicament" class=" w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
                                                     </div>
-                                                    <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
+                                                    <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
                                                 </form>
                                             </div>
                                         </div>
