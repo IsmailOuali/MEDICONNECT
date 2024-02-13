@@ -161,7 +161,7 @@
                               <div  class="flex flex-wrap ml-9 my-5">
                                   <section class="text-gray-700 body-font">
                                       <div class="bg-gray-100">
-                                          <div class="w-full min-h-screen flex items-center justify-center">
+                                          <div class="mt-3 w-full min-h-screen flex flex-col	items-center justify-center">
                                               <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full ">
                                                   <h1 class="text-xl font-semibold mb-4">Veuillez entrer le nom du Specialie</h1>
                                                   <p class="text-gray-600 mb-6">Soyez precis en entrant cet information</p>
