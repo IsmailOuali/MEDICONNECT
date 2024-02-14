@@ -23,7 +23,7 @@
            
                   <div class="mr-2 ">
                       <a href="javascript:void(0)" class="dark:hover:text-primary hover:text-primary transition-colors duration-200 ease-in-out text-[1.075rem] font-medium dark:text-neutral-400/90 text-secondary-inverse">{{ Auth::user()->name }}</a>
-                      <span class="text-secondary-dark dark:text-stone-500 font-medium block text-[0.85rem]">SEO Manager</span>
+                      <span class="text-secondary-dark dark:text-stone-500 font-medium block text-[0.85rem]"> {{ Auth::user()->role }} </span>
                   </div>
                   </div>
                   
@@ -48,7 +48,7 @@
                       <a href="#AddMedicament" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Gestions des medicaments</a>
                       </span>
                   </div>
-      
+                  
                   <!-- menu item -->
                   <div>
                       <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
