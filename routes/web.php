@@ -1,6 +1,5 @@
 <?php
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\RegisterBasedOnRoleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MedicamentController;
 use App\Http\Controllers\SpecialityController;
@@ -36,8 +35,8 @@ Route::post('/register', function () {
 Route::view('/login', 'login')->name('login');
 
 Route::post('/login', function () {
-    return redirect()->route('dashboard');
-});
+})->middleware('RoleMiddleware')->name('login.redirect');
+
 Route::get('/medicaments', [MedicamentController::class, 'index'])->name('medicaments.index');
 Route::post('/medicaments', [MedicamentController::class, 'store'])->name('medicaments.store');
 Route::get('/doc-dashboard-medicament', [MedicamentController::class, 'docDashboard'])->name('docDashboard.medicament');

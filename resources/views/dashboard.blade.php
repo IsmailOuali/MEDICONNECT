@@ -111,7 +111,7 @@
                           </div>
                         </section>
                         
-                        <section class="text-gray-700 body-font">
+                        <section id="AddMedicament" class="text-gray-700 body-font">
                           <div class="bg-gray-100">
                               <div class="w-full min-h-screen flex items-center justify-center">
                                 <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full">
