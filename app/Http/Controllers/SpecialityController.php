@@ -84,9 +84,18 @@ class SpecialityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $name)
     {
         //
+        $request->validate([
+            'speciality' => 'required|string|max:255',
+        ]);
+    
+        $speciality = SpecialiteMedical::where('name', $name)->firstOrFail();
+        $speciality->name = $request->speciality;
+        $speciality->save();
+    
+        return back()->with('success', 'Spécialité mise à jour avec succès.');
     }
 
     /**
@@ -95,4 +104,8 @@ class SpecialityController extends Controller
     public function destroy(string $id)
     {
         //
+        $speciality = SpecialiteMedical::findOrFail($id);
+        $speciality->delete();
+    
+        return back()->with('success', 'Speciality deleted successfully.');
     }}

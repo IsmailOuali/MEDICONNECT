@@ -40,7 +40,8 @@ Route::post('/login', function () {
 });
 Route::get('/medicaments', [MedicamentController::class, 'index'])->name('medicaments.index');
 Route::post('/medicaments', [MedicamentController::class, 'store'])->name('medicaments.store');
-Route::get('/doc-dashboard', [MedicamentController::class, 'docDashboard'])->name('docDashboard');
+Route::get('/doc-dashboard-medicament', [MedicamentController::class, 'docDashboard'])->name('docDashboard.medicament');
+Route::get('/doc-dashboard-speciality', [SpecialityController::class, 'docDashboard'])->name('docDashboard.speciality');
 Route::get('/dashboard', [MedicamentController::class, 'dashboard'])->name('dashboard');
 
 
@@ -48,6 +49,14 @@ Route::get('/Specialities', [SpecialityController::class, 'index'])->name('Speci
 Route::post('/Specialties', [SpecialityController::class, 'store'])->name('Specialities.store');
 Route::get('/doc-dashboard', [SpecialityController::class, 'docDashboard'])->name('docDashboard');
 Route::get('/dashboard', [SpecialityController::class, 'dashboard'])->name('dashboard');
+Route::put('/medicaments/{name}', [MedicamentController::class, 'update'])->name('medicaments.update');
+Route::delete('/medicaments/{id}', [MedicamentController::class, 'destroy'])->name('medicaments.destroy');
+
+Route::put('/specialities/{name}', [SpecialityController::class, 'update'])->name('Specialities.update');
+Route::delete('/specialities/{id}', [SpecialityController::class, 'destroy'])->name('Specialities.destroy');
+
+
+
 
 
 

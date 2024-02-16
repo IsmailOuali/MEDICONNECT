@@ -111,105 +111,140 @@
                           </div>
                         </section>
                         
-                        <section id="AddMedicament"  class="text-gray-700 body-font">
-                          <div  class="flex flex-wrap ml-9 my-5">
-                              <section class="text-gray-700 body-font">
-                                  <div class="bg-gray-100">
-                                      <div class="w-full min-h-screen flex items-center justify-center">
-                                          <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full">
-                                              <h1 class="text-xl font-semibold mb-4">Veuillez entrer le nom du medicament</h1>
-                                              <p class="text-gray-600 mb-6">Soyez precis en entrant cet information</p>
-                                              <form method="POST" action="{{ route('medicaments.store') }}">
-                                                  @csrf
-                                                  <div class="mb-4">
-                                                    <input type="text" name="medicament" placeholder="Medicament" class=" w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
-                                                  </div>
-                                                  <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
-                                              </form>
-                                          </div>
-                                          <div class="text-gray-900 bg-gray-200">
-                                            <div class="p-4 flex">
-                                                <h1 class="text-3xl">
-                                                    Medicaments
-                                                </h1>
-                                            </div>
-                                            <div class="px-3 flex justify-center">
-                                                <table class="w-full text-md bg-blue-300 shadow-md rounded mb-4">
-                                                    <tbody>
-                                                        <tr class="border-b">
-                                                            <th class="text-left p-3 px-5">Name</th>
-                                                            <th></th>
-                                                        </tr>
-                                                        @csrf
-                                                        @foreach ($medicaments as $medicament)
-                     
-                                                        <tr class="border-b hover:bg-orange-100">
-                                                            <td class="p-3 px-5"><p>{{ $medicament->name }}</p></td>
-                                                            <td class="p-3 px-5 flex justify-end"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</button><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button></td>
-                                                        </tr>
-  
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                        <section class="text-gray-700 body-font">
+                          <div class="bg-gray-100">
+                              <div class="w-full min-h-screen flex items-center justify-center">
+                                <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full">
+                                  <h1 class="text-xl font-semibold mb-4">Veuillez entrer le nom du médicament</h1>
+                                  <form method="POST" action="{{ route('medicaments.store') }}">
+                                      @csrf
+                                      <div class="mb-4">
+                                          <input type="text" name="medicament" placeholder="Médicament" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
+                                      </div>
+                                      <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
+                                  </form>
+                              </div>
+                              <table class="w-full text-md bg-blue-300 shadow-md rounded mb-4">
+                                <thead>
+                                    <tr class="border-b">
+                                        <th class="text-left p-3 px-5">Nom</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($medicaments as $medicament)
+                                    <tr class="border-b hover:bg-orange-100">
+                                        <td class="p-3 px-5"><p>{{ $medicament->name }}</p></td>
+                                        <td class="p-3 px-5 flex justify-end">
+                                            <button type="button" onclick="fillUpdateForm('{{ $medicament->name }}')" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</button>
+                                            <form method="POST" action="{{ route('medicaments.destroy', $medicament->id) }}">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                              
+                              <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full" id="updateFormContainer" style="display: none;">
+                                  <h1 class="text-xl font-semibold mb-4">Modifier le médicament</h1>
+                                  <form method="POST" id="updateForm" action="{{ route('medicaments.update', ['name' => $medicament->name]) }}">
+                                    @csrf
+                                      @method('put')
+                                      <div class="mb-4">
+                                          <input type="text" name="medicament" id="updateMedicament" placeholder="Médicament" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
+                                      </div>
+                                      <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Modifier</button>
+                                  </form>
+                              </div>
+                      </section>
+                      <section id="Addspeciality"  class="text-gray-700 body-font">
+                        <div  class="flex flex-wrap ml-9 my-5">
+                            <section class="text-gray-700 body-font">
+                                <div class="bg-gray-100">
+                                    <div class="mt-3 w-full min-h-screen flex flex-col	items-center justify-center">
+                                        <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full ">
+                                            <h1 class="text-xl font-semibold mb-4">Veuillez entrer le nom du Specialie</h1>
+                                            <p class="text-gray-600 mb-6">Soyez precis en entrant cet information</p>
+                                            <form method="POST" action="{{ route('Specialities.store') }}">
+                                                @csrf
+                                                <div class="mb-4">
+                                                  <input type="text" name="speciality" placeholder="Speciality" class=" w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
+                                                </div>
+                                                <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
+                                            </form>
                                         </div>
+                                        <div class="text-gray-900 bg-gray-200">
+                                          <div class="p-4 flex">
+                                              <h1 class="text-3xl">
+                                                  Specialités
+                                              </h1>
+                                          </div>
+                                          <div class="px-3 flex justify-center">
+                                              <table class="w-full text-md bg-blue-300 shadow-md rounded mb-4">
+                                                  <tbody>
+                                                      <tr class="border-b">
+                                                          <th class="text-left p-3 px-5">Name</th>
+                                                          <th>Actions</th>
+                                                      </tr>
+                                                      @csrf
+                                                      @foreach ($specialities as $speciality)
+                                                      <tr class="border-b hover:bg-orange-100">
+                                                          <td class="p-3 px-5"><p>{{ $speciality->name }}</p></td>
+                                                          <td class="p-3 px-5 flex justify-end">
+                                                              <button type="button" onclick="fillUpdateSpecialityForm('{{ $speciality->name }}')" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</button>
+                                                              <form method="POST" action="{{ route('Specialities.destroy', $speciality->id) }}">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button type="submit" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
+                                                            </form>
+                                                            
+                                                          </td>
+                                                      </tr>
+                                                      @endforeach
+                                                  </tbody>
+                                              </table>
+                                          </div>
+                                      </div>
+                                      <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full" id="updateSpecialityFormContainer" style="display: none;">
+                                          <h1 class="text-xl font-semibold mb-4">Modifier la spécialité</h1>
+                                          <form method="POST" id="updateSpecialityForm" action="{{ route('Specialities.update', ['name' => $speciality->name]) }}">
+                                              @csrf
+                                              @method('put')
+                                              <div class="mb-4">
+                                                  <input type="text" name="speciality" id="updateSpeciality" placeholder="Spécialité" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
+                                              </div>
+                                              <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Modifier</button>
+                                          </form>
                                       </div>
                                       
-                                  </div>
-                            </section>
-                            <section id="Addspeciality"  class="text-gray-700 body-font">
-                              <div  class="flex flex-wrap ml-9 my-5">
-                                  <section class="text-gray-700 body-font">
-                                      <div class="bg-gray-100">
-                                          <div class="mt-3 w-full min-h-screen flex flex-col	items-center justify-center">
-                                              <div class="bg-blue-600 p-8 rounded-lg shadow-lg max-w-md w-full ">
-                                                  <h1 class="text-xl font-semibold mb-4">Veuillez entrer le nom du Specialie</h1>
-                                                  <p class="text-gray-600 mb-6">Soyez precis en entrant cet information</p>
-                                                  <form method="POST" action="{{ route('Specialities.store') }}">
-                                                      @csrf
-                                                      <div class="mb-4">
-                                                        <input type="text" name="speciality" placeholder="Speciality" class=" w-full px-4 py-2 border rounded-lg text-gray-700 focus:border-blue-500" />
-                                                      </div>
-                                                      <button type="submit" class="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Ajouter</button>
-                                                  </form>
-                                              </div>
-                                              <div class="text-gray-900 bg-gray-200">
-                                                <div class="p-4 flex">
-                                                    <h1 class="text-3xl">
-                                                        Specialities
-                                                    </h1>
-                                                </div>
-                                                <div class="px-3 flex justify-center">
-                                                    <table class="w-full text-md bg-blue-300 shadow-md rounded mb-4">
-                                                        <tbody>
-                                                            <tr class="border-b">
-                                                                <th class="text-left p-3 px-5">Name</th>
-                                                                <th></th>
-                                                            </tr>
-                                                            @csrf
-
-                                                            @foreach ($specialities as $speciality)
-                         
-                                                            <tr class="border-b hover:bg-orange-100">
-                                                                <td class="p-3 px-5"><p>{{ $speciality->name }}</p></td>
-                                                                <td class="p-3 px-5 flex justify-end"><button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Update</button><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button></td>
-                                                            </tr>
-      
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                          </div>
-                                          
                                       </div>
-                                </section>
+                                    </div>
+                                    
+                                  </section>
+                                </div>
+                      
                           </div>
                       </div>
-                  </div>
-        </section>
+                </div>
 
 
       </div>
   </div>
+                    
+  <script>
+     function fillUpdateForm(name) {
+      document.getElementById('updateMedicament').value = name;
+    document.getElementById('updateForm').action = 'http://127.0.0.1:8000/medicaments/' + name;
+    document.getElementById('updateFormContainer').style.display = 'block';
+    }
+
+    function fillUpdateSpecialityForm(name) {
+    document.getElementById('updateSpeciality').value = name;
+    document.getElementById('updateSpecialityForm').action = 'http://127.0.0.1:8000/specialities/' + name;
+    document.getElementById('updateSpecialityFormContainer').style.display = 'block';
+}
+  </script>
 </x-app-layout>

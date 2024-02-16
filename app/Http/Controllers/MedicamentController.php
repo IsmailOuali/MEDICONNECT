@@ -12,11 +12,10 @@ class MedicamentController extends Controller
      */
     public function index()
     {
-        // Fetch all medicaments from the database
         $medicaments = Medicament::all();
 
         // Pass the medicaments data to the view
-        return view('welcome');
+        return view('welcome', compact('medicaments'));
 
     }
     public function docDashboard()
@@ -77,10 +76,18 @@ class MedicamentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        public function update(Request $request, string $name)
+        {
+            $request->validate([
+                'medicament' => 'required|string|max:255',
+            ]);
+        
+            $medicament = Medicament::where('name', $name)->firstOrFail();
+            $medicament->name = $request->medicament;
+            $medicament->save();
+        
+            return back()->with('success', 'Medicament updated successfully.');
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -88,5 +95,9 @@ class MedicamentController extends Controller
     public function destroy(string $id)
     {
         //
+        $medicament = Medicament::findOrFail($id);
+        $medicament->delete();
+    
+        return back()->with('success', 'Medicament deleted successfully.');
     }
 }
