@@ -1,4 +1,11 @@
+Lien de presentation:
+    https://www.canva.com/design/DAF8_bYrf40/U2Q0e3DgRij5SjuRqKtMQA/edit
 
+Lien de plannification (Jira):
+    https://ismail-ouali.atlassian.net/jira/core/projects/MD/board
+
+Lien des diagrammes:
+    https://www.mediafire.com/folder/yoghdrk6l81ce/mediconnect
 
 ## About Laravel
 
