@@ -1,5 +1,4 @@
 <script src="https://cdn.tailwindcss.com"></script>
-
 <div class="w-screen">
     <div class="relative mx-auto mt-20 mb-20 max-w-screen-lg overflow-hidden rounded-t-xl bg-teal-400/60 py-32 text-center shadow-xl shadow-gray-300">
       <h1 class="mt-2 px-8 text-3xl font-bold text-white md:text-5xl">Prendre un rendez-vous</h1>
