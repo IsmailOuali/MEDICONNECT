@@ -55,6 +55,11 @@ Route::put('/specialities/{name}', [SpecialityController::class, 'update'])->nam
 Route::delete('/specialities/{id}', [SpecialityController::class, 'destroy'])->name('Specialities.destroy');
 
 
+Route::get('/booking', function () {
+    return view('booking');
+})->name('booking');
+
+
 
 
 
