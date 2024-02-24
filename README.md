@@ -5,7 +5,7 @@ Lien de plannification (Jira):
     https://ismail-ouali.atlassian.net/jira/core/projects/MD/board
 
 Lien des diagrammes:
-    https://www.mediafire.com/folder/yoghdrk6l81ce/mediconnect
+   (http://www.mediafire.com/folder/zmns5it7uf9cm43,z1m6j2jfz2q8jm3/shared)
 
 ## About Laravel
 
