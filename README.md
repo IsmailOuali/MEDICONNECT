@@ -1,5 +1,5 @@
 Lien de presentation:
-    https://www.canva.com/design/DAF8_bYrf40/U2Q0e3DgRij5SjuRqKtMQA/edit
+    [[https://www.canva.com/design/DAF8_bYrf40/U2Q0e3DgRij5SjuRqKtMQA/edit](https://www.canva.com/design/DAF9vjTNdz4/yHtbNQu3nsvd5wlNTDG0Cg/edit)](https://www.canva.com/design/DAF9vjTNdz4/yHtbNQu3nsvd5wlNTDG0Cg/edit)
 
 Lien de plannification (Jira):
     https://ismail-ouali.atlassian.net/jira/core/projects/MD/board
